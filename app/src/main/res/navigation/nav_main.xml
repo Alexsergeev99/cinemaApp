@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="ru.alexsergeev.cinemaapp.fragments.ui.login.LoginFragment"
-        android:label="LoginFragment" />
+        android:name="ru.alexsergeev.cinemaapp.fragments.ui.fragments.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_startedPage"
+            app:destination="@id/startedPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/startedPage"
+        android:name="ru.alexsergeev.cinemaapp.fragments.ui.fragments.StartedPage"
+        android:label="fragment_started_page"
+        tools:layout="@layout/fragment_started_page" >
+        <action
+            android:id="@+id/action_startedPage_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

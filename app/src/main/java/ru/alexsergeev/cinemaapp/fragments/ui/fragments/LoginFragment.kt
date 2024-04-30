@@ -1,21 +1,13 @@
-package ru.alexsergeev.cinemaapp.fragments.ui.login
+package ru.alexsergeev.cinemaapp.fragments.ui.fragments
 
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import ru.alexsergeev.cinemaapp.R
 import ru.alexsergeev.cinemaapp.databinding.FragmentLoginBinding
 import ru.alexsergeev.cinemaapp.viewmodel.FilmViewModel
@@ -40,9 +32,12 @@ class LoginFragment : Fragment() {
         val passwordEditText = binding.password
         val loginButton = binding.login
         val loadingProgressBar = binding.loading
+        val createAccountButton = binding.createAccount
 
         loginButton.setOnClickListener {
             loadingProgressBar.visibility = View.VISIBLE
+            Toast.makeText(context, "OK", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_loginFragment_to_startedPage)
 //            viewModel.login(
 //                usernameEditText.text.toString(),
 //                passwordEditText.text.toString()
