@@ -35,13 +35,18 @@ class LoginFragment : Fragment() {
         val createAccountButton = binding.createAccount
 
         loginButton.setOnClickListener {
+            if (viewModel.login(
+                    usernameEditText.text.toString(),
+                    passwordEditText.text.toString()
+                )) {
+                loadingProgressBar.visibility = View.VISIBLE
+                findNavController().navigate(R.id.action_loginFragment_to_startedPage)
+            }
+        }
+
+        createAccountButton.setOnClickListener {
             loadingProgressBar.visibility = View.VISIBLE
-            Toast.makeText(context, "OK", Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_loginFragment_to_startedPage)
-//            viewModel.login(
-//                usernameEditText.text.toString(),
-//                passwordEditText.text.toString()
-//            )
+            findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
         }
 
         return binding.root

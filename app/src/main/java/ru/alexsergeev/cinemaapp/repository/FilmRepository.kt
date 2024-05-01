@@ -1,5 +1,6 @@
 package ru.alexsergeev.cinemaapp.repository
 
-class FilmRepository {
+interface FilmRepository {
+ fun login(userNameLogin: String, userNamePassword: String): Boolean
 
 }
