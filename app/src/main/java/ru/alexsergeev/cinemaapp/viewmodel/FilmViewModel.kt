@@ -13,7 +13,4 @@ class FilmViewModel(application: Application): AndroidViewModel(application) {
   fun login(userNameLogin: String, userNamePassword: String): Boolean {
       return repository.login(userNameLogin, userNamePassword)
   }
-//fun login(userNameLogin: String, userNamePassword: String): Boolean {
-//    if (userNamePassword.length < 5) return false else return true
-//}
 }
