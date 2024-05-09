@@ -11,12 +11,13 @@ import androidx.navigation.fragment.findNavController
 import ru.alexsergeev.cinemaapp.R
 import ru.alexsergeev.cinemaapp.databinding.FragmentLoginBinding
 import ru.alexsergeev.cinemaapp.viewmodel.FilmViewModel
+import ru.alexsergeev.cinemaapp.viewmodel.UserViewModel
 
 //import ru.alexsergeev.cinemaapp.fragments.R
 
 class LoginFragment : Fragment() {
 
-    private val viewModel: FilmViewModel by activityViewModels()
+    private val viewModel: UserViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,7 +39,7 @@ class LoginFragment : Fragment() {
             if (viewModel.login(
                     usernameEditText.text.toString(),
                     passwordEditText.text.toString()
-                )) {
+                ) ) {
                 loadingProgressBar.visibility = View.VISIBLE
                 findNavController().navigate(R.id.action_loginFragment_to_startedPage)
             }

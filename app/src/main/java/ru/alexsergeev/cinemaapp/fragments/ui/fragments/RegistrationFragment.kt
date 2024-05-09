@@ -12,9 +12,10 @@ import ru.alexsergeev.cinemaapp.databinding.FragmentRegistrationBinding
 import ru.alexsergeev.cinemaapp.databinding.FragmentStartedPageBinding
 import ru.alexsergeev.cinemaapp.user.User
 import ru.alexsergeev.cinemaapp.viewmodel.FilmViewModel
+import ru.alexsergeev.cinemaapp.viewmodel.UserViewModel
 
 class RegistrationFragment : Fragment() {
-    private val viewModel: FilmViewModel by activityViewModels()
+    private val viewModel: UserViewModel by activityViewModels()
     var users = mutableListOf<User>()
     var newId = 0
     override fun onCreateView(
@@ -27,9 +28,8 @@ class RegistrationFragment : Fragment() {
             container,
             false
         )
-
         binding.createNewAccount.setOnClickListener {
-            users.add(User(
+            viewModel.addUser(User(
                 id = newId++.toLong(),
                 eMail = binding.usernameReg.toString(),
                 password = binding.passwordReg.toString(),

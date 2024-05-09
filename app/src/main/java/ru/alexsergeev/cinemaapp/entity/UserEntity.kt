@@ -23,6 +23,8 @@ data class UserEntity (
         name = user.name,
         phone = user.phone
     )
-
     }
+
+    fun List<UserEntity>.toDto(): List<User> = map(UserEntity::toDto)
+    fun List<User>.toEntity(): List<UserEntity> = map { UserEntity.fromDto(it) }
 }
