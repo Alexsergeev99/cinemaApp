@@ -6,5 +6,5 @@ import ru.alexsergeev.cinemaapp.user.User
 interface UserRepository {
     fun login(userNameLogin: String, userNamePassword: String): Boolean
     fun addUser(user: User)
-    suspend fun getUserByLogin(login: String): UserEntity?
+    fun getUserByLogin(login: String): UserEntity?
 }

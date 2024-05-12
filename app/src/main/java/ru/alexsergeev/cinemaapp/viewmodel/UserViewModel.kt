@@ -1,7 +1,12 @@
 package ru.alexsergeev.cinemaapp.viewmodel
 
 import android.app.Application
+import android.view.View
 import androidx.lifecycle.AndroidViewModel
+import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import ru.alexsergeev.cinemaapp.R
 import ru.alexsergeev.cinemaapp.db.AppDb
 import ru.alexsergeev.cinemaapp.repository.UserRepository
 import ru.alexsergeev.cinemaapp.repository.UserRepositoryImpl
@@ -18,7 +23,7 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
     fun addUser(user: User) {
         repository.addUser(user)
     }
-    suspend fun getUserByLogin(login: String) {
+    fun getUserByLogin(login: String) {
         repository.getUserByLogin(login)
     }
-}
+    }

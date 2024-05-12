@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import ru.alexsergeev.cinemaapp.R
 import ru.alexsergeev.cinemaapp.databinding.FragmentLoginBinding
 import ru.alexsergeev.cinemaapp.viewmodel.FilmViewModel
@@ -39,7 +41,8 @@ class LoginFragment : Fragment() {
             if (viewModel.login(
                     usernameEditText.text.toString(),
                     passwordEditText.text.toString()
-                ) ) {
+                )
+            ) {
                 loadingProgressBar.visibility = View.VISIBLE
                 findNavController().navigate(R.id.action_loginFragment_to_startedPage)
             }
@@ -52,5 +55,4 @@ class LoginFragment : Fragment() {
 
         return binding.root
     }
-
 }

@@ -21,5 +21,5 @@ interface UserDao {
     fun save(user: UserEntity) = if(user.id == 0L) insert(user) else changePasswordById(user.id, user.password)
 
     @Query("SELECT * FROM UserEntity WHERE eMail = :login")
-    suspend fun getUserByLogin(login: String): UserEntity
+    fun getUserByLogin(login: String): UserEntity
 }
